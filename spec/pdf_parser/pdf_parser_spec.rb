@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../Helpers/PdfParser'
+require_relative '../../Helpers/pdf_parser'
 
 include PdfParser
 
