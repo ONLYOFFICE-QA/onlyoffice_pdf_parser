@@ -4,7 +4,6 @@ require_relative '../../parsers/pdf_parser'
 include PdfParser
 
 describe 'Check PDF parser' do
-
   it 'Check PDF parser | Text without spaces' do
     pdf_info = parse_pdf('PDFText', 'spec/pdf_parser/pdf_examples')
     expect(pdf_info[:pages].first[:text]).to eq('Text')
