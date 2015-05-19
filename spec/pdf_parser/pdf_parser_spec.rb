@@ -23,4 +23,9 @@ describe 'Check PDF parser' do
     pdf_info = parse_pdf('PDFNotCustomPageSize', 'spec/pdf_parser/pdf_examples')
     expect(pdf_info[:page_size]).to eq('B5')
   end
+
+  it 'Check PDF parser | Check for Glyph error' do # https://github.com/yob/pdf-reader/issues/124
+    pdf_info = parse_pdf('pdf_unknown_glyph_width_error', 'spec/pdf_parser/pdf_examples')
+    expect(pdf_info[:page_size]).to eq('A4')
+  end
 end
