@@ -28,4 +28,8 @@ describe 'Check PDF parser' do
     pdf_info = parse_pdf('pdf_unknown_glyph_width_error', 'spec/pdf_parser/pdf_examples')
     expect(pdf_info[:page_size]).to eq('A4')
   end
+
+  it 'Export from xlsx' do
+    expect { parse_pdf('xref_not_defined', 'spec/pdf_parser/pdf_examples') }.to raise_error PDF::Reader::MalformedPDFError
+  end
 end
