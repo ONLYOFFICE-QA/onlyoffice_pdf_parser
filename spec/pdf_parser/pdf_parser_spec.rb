@@ -16,7 +16,7 @@ describe 'Check PDF parser' do
 
   it 'Check PDF parser | Text with not custom font' do
     pdf_info = parse_pdf('PDFNotCustomFont', 'spec/pdf_parser/pdf_examples')
-    expect(pdf_info[:pages].first[:fonts]).to eq('Times New Roman')
+    expect(pdf_info[:pages].first[:fonts]).to eq('Times New Roman,Regular_Embedded')
   end
 
   it 'Check PDF parser | Text with not custom page size' do
