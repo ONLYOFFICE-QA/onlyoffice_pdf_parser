@@ -28,4 +28,9 @@ describe 'Check PDF parser' do
     pdf_info = parse_pdf('pdf_unknown_glyph_width_error', 'spec/pdf_parser/pdf_examples')
     expect(pdf_info[:page_size]).to eq('A4')
   end
+
+  it 'Check PDF parser | Check for font in 1.7' do
+    pdf_info = parse_pdf('pdf_font_1.7', 'spec/pdf_parser/pdf_examples')
+    expect(pdf_info[:pages].first[:fonts]).to eq('Andale Mono')
+  end
 end
