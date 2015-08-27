@@ -33,4 +33,8 @@ describe 'Check PDF parser' do
     pdf_info = parse_pdf('pdf_font_1.7', 'spec/pdf_parser/pdf_examples')
     expect(pdf_info[:pages].first[:fonts]).to eq('Andale Mono')
   end
+
+  it 'Incorrect pdf from Ilya.Kirillov with missed xref' do
+    expect { parse_pdf('xref_not_defined', 'spec/pdf_parser/pdf_examples') }.to raise_error PDF::Reader::MalformedPDFError
+  end
 end
