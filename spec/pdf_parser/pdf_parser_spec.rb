@@ -35,4 +35,10 @@ describe 'Check PDF parser' do
   it 'Incorrect pdf from Ilya.Kirillov with missed xref' do
     expect { PdfParser.parse('spec/pdf_parser/pdf_examples/xref_not_defined.pdf') }.to raise_error PDF::Reader::MalformedPDFError
   end
+
+  it 'Empty font name' do
+    # This is because sometimes text cannot be saved as font object and saves as image
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/empty_font_name.pdf')
+    expect(pdf_info[:pages].first[:text]).to be_empty
+  end
 end
