@@ -1,10 +1,15 @@
 require 'pdf/reader'
 
 class PdfStructure
+  # @return [Array, Pages] array of pages
   attr_accessor :pages
+  # @return [String] page size of doc
   attr_accessor :page_size
+  # @return [String] full path to file
+  attr_accessor :file_path
 
-  def initialize(pages: [], page_size: nil)
+  def initialize(pages: [], page_size: nil, file_path: file_path)
+    @file_path = file_path
     @pages = pages
     @page_size = page_size
   end
@@ -51,7 +56,7 @@ class PdfStructure
   def self.parse(filename)
     pdfinfo = `pdfinfo "#{filename}"` # get info about pdf
     page_size = PAGE_SIZE_FOR_PDF.key(pdfinfo.split('Page size:')[1].split('pts').first.strip) # change size to format
-    file = PdfStructure.new(pages: [], page_size: page_size)
+    file = PdfStructure.new(pages: [], page_size: page_size, file_path: filename)
     PDF::Reader.open(filename.to_s) do |reader|
       reader.pages.each do |page|
         font_string = page.fonts[:F1][:BaseFont].to_s unless page.fonts[:F1].nil? # got ine in which font for first paragraph stored

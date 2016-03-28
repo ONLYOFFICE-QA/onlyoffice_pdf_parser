@@ -2,6 +2,10 @@ require 'rspec'
 require_relative '../../parsers/pdf_structure'
 
 describe 'Check PDF parser' do
+  it 'Check filename attribue' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/PDFText.pdf')
+    expect(pdf_info.file_path).to eq('spec/pdf_parser/pdf_examples/PDFText.pdf')
+  end
   it 'Check PDF parser | Text without spaces' do
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/PDFText.pdf')
     expect(pdf_info[:pages].first[:text]).to eq('Text')
