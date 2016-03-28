@@ -52,6 +52,12 @@ describe 'Check PDF parser' do
     expect(File.size(bmp)).to be > 1000
   end
 
+  it 'convert pdf to bmp file with space' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/space in font name.pdf')
+    bmp = pdf_info.to_bmp
+    expect(File.size(bmp)).to be > 1000
+  end
+
   it 'check pdf for pattern' do
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/pdf_gridlines.pdf')
     expect(pdf_info.contain_pattern?('spec/pdf_parser/pdf_examples/pdf_gridlines_pattern.bmp')).to be_truthy

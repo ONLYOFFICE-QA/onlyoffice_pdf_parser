@@ -30,7 +30,7 @@ class PdfStructure
   def to_bmp
     FileHelper.create_folder('/tmp/ruby/pdf-structure')
     output = "/tmp/ruby/pdf-structure/#{StringHelper.generate_random_string}.bmp"
-    `convert #{@file_path} #{output}`
+    `convert "#{@file_path}" #{output}`
     output
   end
 
