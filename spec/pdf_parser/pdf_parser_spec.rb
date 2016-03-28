@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../parsers/pdf_parser'
+require_relative '../../parsers/pdf_structure'
 
 describe 'Check PDF parser' do
   it 'Check PDF parser | Text without spaces' do
