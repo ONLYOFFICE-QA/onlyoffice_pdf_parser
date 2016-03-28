@@ -8,7 +8,7 @@ class PdfStructure
   # @return [String] full path to file
   attr_accessor :file_path
 
-  def initialize(pages: [], page_size: nil, file_path: file_path)
+  def initialize(pages: [], page_size: nil, file_path: nil)
     @file_path = file_path
     @pages = pages
     @page_size = page_size
@@ -32,6 +32,14 @@ class PdfStructure
     output = "/tmp/ruby/pdf-structure/#{StringHelper.generate_random_string}.bmp"
     `convert #{@file_path} #{output}`
     output
+  end
+
+  # @return [True, false] Check if pdf file contains graphic pattern
+  def contain_pattern?(path_to_patter)
+    bmp_path = to_bmp
+    bmp = BmpImage.new(bmp_path)
+    array = bmp.get_sub_image_array(path_to_patter)
+    !array.empty?
   end
 
   PAGE_SIZE_FOR_PDF = { 'US Letter' => '612 x 792',
