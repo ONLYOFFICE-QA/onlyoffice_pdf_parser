@@ -1,7 +1,11 @@
 require 'rspec'
-require_relative '../../parsers/pdf_parser'
+require_relative '../../testing_shared'
 
 describe 'Check PDF parser' do
+  it 'Check filename attribue' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/PDFText.pdf')
+    expect(pdf_info.file_path).to eq('spec/pdf_parser/pdf_examples/PDFText.pdf')
+  end
   it 'Check PDF parser | Text without spaces' do
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/PDFText.pdf')
     expect(pdf_info[:pages].first[:text]).to eq('Text')
@@ -40,5 +44,22 @@ describe 'Check PDF parser' do
     # This is because sometimes text cannot be saved as font object and saves as image
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/empty_font_name.pdf')
     expect(pdf_info[:pages].first[:text]).to be_empty
+  end
+
+  it 'convert pdf to bmp' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/empty_font_name.pdf')
+    bmp = pdf_info.to_bmp
+    expect(File.size(bmp)).to be > 1000
+  end
+
+  it 'convert pdf to bmp file with space' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/space in font name.pdf')
+    bmp = pdf_info.to_bmp
+    expect(File.size(bmp)).to be > 1000
+  end
+
+  it 'check pdf for pattern' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/pdf_gridlines.pdf')
+    expect(pdf_info.contain_pattern?('spec/pdf_parser/pdf_examples/pdf_gridlines_pattern.bmp')).to be_truthy
   end
 end
