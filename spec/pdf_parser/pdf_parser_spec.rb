@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../parsers/pdf_structure'
+require_relative '../../testing_shared'
 
 describe 'Check PDF parser' do
   it 'Check filename attribue' do
@@ -44,5 +44,11 @@ describe 'Check PDF parser' do
     # This is because sometimes text cannot be saved as font object and saves as image
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/empty_font_name.pdf')
     expect(pdf_info[:pages].first[:text]).to be_empty
+  end
+
+  it 'convert pdf to bmp' do
+    pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/empty_font_name.pdf')
+    bmp = pdf_info.to_bmp
+    expect(File.size(bmp)).to be > 1000
   end
 end

@@ -25,6 +25,15 @@ class PdfStructure
     end
   end
 
+  # Convert to bmp file
+  # @return [String] path to bmp image
+  def to_bmp
+    FileHelper.create_folder('/tmp/ruby/pdf-structure')
+    output = "/tmp/ruby/pdf-structure/#{StringHelper.generate_random_string}.bmp"
+    `convert #{@file_path} #{output}`
+    output
+  end
+
   PAGE_SIZE_FOR_PDF = { 'US Letter' => '612 x 792',
                         'US Legal' => '612 x 1008',
                         'A4' => '595.276 x 841.89',
