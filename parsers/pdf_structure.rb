@@ -7,6 +7,8 @@ class PdfStructure
   attr_accessor :page_size
   # @return [String] full path to file
   attr_accessor :file_path
+  # @return [String] stream of bmp file with content
+  attr_accessor :bmp_stream
 
   def initialize(pages: [], page_size: nil, file_path: nil)
     @file_path = file_path
@@ -25,19 +27,22 @@ class PdfStructure
     end
   end
 
-  # Convert to bmp file
+  # Convert to bmp file and store data in variable
   # @return [String] path to bmp image
-  def to_bmp
+  def fetch_bmp_stream
     FileHelper.create_folder('/tmp/ruby/pdf-structure')
-    output = "/tmp/ruby/pdf-structure/#{StringHelper.generate_random_string}.bmp"
-    `convert "#{@file_path}" #{output}`
-    output
+    temp_bmp_file = Tempfile.new(%w(pdf-parser .bmp))
+    `convert "#{@file_path}" #{temp_bmp_file.path}`
+    @bmp_stream = File.binread(temp_bmp_file.path)
+    temp_bmp_file.unlink
   end
 
   # @return [True, false] Check if pdf file contains graphic pattern
   def contain_pattern?(path_to_patter)
-    bmp_path = to_bmp
-    bmp = BmpImage.new(bmp_path)
+    bmp_image = Tempfile.new(%w(pdf-parser .bmp))
+    File.binwrite(bmp_image.path, @bmp_stream)
+    bmp = BmpImage.new(bmp_image.path)
+    bmp_image.unlink
     array = bmp.get_sub_image_array(path_to_patter)
     !array.empty?
   end
@@ -84,6 +89,7 @@ class PdfStructure
         }
       end
     end
+    file.fetch_bmp_stream
     file
   end
 end

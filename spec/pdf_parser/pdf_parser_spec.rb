@@ -48,13 +48,13 @@ describe 'Check PDF parser' do
 
   it 'convert pdf to bmp' do
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/empty_font_name.pdf')
-    bmp = pdf_info.to_bmp
+    bmp = pdf_info.fetch_bmp_stream
     expect(File.size(bmp)).to be > 1000
   end
 
   it 'convert pdf to bmp file with space' do
     pdf_info = PdfParser.parse('spec/pdf_parser/pdf_examples/space in font name.pdf')
-    bmp = pdf_info.to_bmp
+    bmp = pdf_info.fetch_bmp_stream
     expect(File.size(bmp)).to be > 1000
   end
 
