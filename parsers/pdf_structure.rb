@@ -85,8 +85,7 @@ class PdfStructure
         font_string = /(?=\+)(.*)/.match(font_string) # remove all from "+" to ","
 
         file.pages << { text: page.text,
-                        fonts: font_string.to_s.delete('+') # remove "+" and ","
-        }
+                        fonts: font_string.to_s.delete('+') } # remove "+" and ","
       end
     end
     file.fetch_bmp_stream
