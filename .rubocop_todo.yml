@@ -20,11 +20,3 @@ Metrics/LineLength:
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
   Max: 14
-
-# Offense count: 2
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/onlyoffice_pdf_parser/helpers/array.rb'
-    - 'lib/onlyoffice_pdf_parser/pdf_structure.rb'

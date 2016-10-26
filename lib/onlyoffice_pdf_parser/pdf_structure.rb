@@ -1,6 +1,7 @@
 require 'pdf/reader'
 require 'tempfile'
 
+# Class for working and parsing PDF files
 class PdfStructure
   # @return [Array, Pages] array of pages
   attr_accessor :pages
