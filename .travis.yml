@@ -4,6 +4,10 @@ rvm:
 - 2.3.0
 - 2.2
 - 2.1
+matrix:
+  allow_failures:
+  - rvm: ruby-head
+  - rvm: 2.3.0
 bundler_args: "--without development"
 script:
 - bundle exec rspec
