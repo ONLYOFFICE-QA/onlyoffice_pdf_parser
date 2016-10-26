@@ -1,8 +1,10 @@
 require 'pdf/reader'
 require 'tempfile'
+require_relative 'pdf_structure/pdf_reader_helper'
 
 # Class for working and parsing PDF files
 class PdfStructure
+  include PdfReaderHelper
   # @return [Array, Pages] array of pages
   attr_accessor :pages
   # @return [String] page size of doc
@@ -48,6 +50,16 @@ class PdfStructure
     !array.empty?
   end
 
+  # Parse file using `pdf-reader` gem
+  def pdf_reader_parse
+    PDF::Reader.open(file_path.to_s) do |reader|
+      reader.pages.each do |page|
+        @pages << { text: page.text,
+                    fonts: parse_font(page) }
+      end
+    end
+  end
+
   PAGE_SIZE_FOR_PDF = { 'US Letter' => '612 x 792',
                         'US Legal' => '612 x 1008',
                         'A4' => '595.276 x 841.89',
@@ -80,15 +92,7 @@ class PdfStructure
     pdfinfo = `pdfinfo "#{filename}"` # get info about pdf
     page_size = PAGE_SIZE_FOR_PDF.key(pdfinfo.split('Page size:')[1].split('pts').first.strip) # change size to format
     file = PdfStructure.new(pages: [], page_size: page_size, file_path: filename)
-    PDF::Reader.open(filename.to_s) do |reader|
-      reader.pages.each do |page|
-        font_string = page.fonts[:F1][:BaseFont].to_s unless page.fonts[:F1].nil? # got ine in which font for first paragraph stored
-        font_string = /(?=\+)(.*)/.match(font_string) # remove all from "+" to ","
-
-        file.pages << { text: page.text,
-                        fonts: font_string.to_s.delete('+') } # remove "+" and ","
-      end
-    end
+    file.pdf_reader_parse
     file.fetch_bmp_stream
     file
   end
