@@ -1,0 +1,1 @@
+require_relative 'onlyoffice_pdf_parser/pdf_structure.rb'
