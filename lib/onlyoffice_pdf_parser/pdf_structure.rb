@@ -1,4 +1,5 @@
 require 'pdf/reader'
+require 'tempfile'
 
 class PdfStructure
   # @return [Array, Pages] array of pages
