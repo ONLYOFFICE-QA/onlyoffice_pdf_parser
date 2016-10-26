@@ -1,4 +1,5 @@
 require 'pdf/reader'
+require 'tempfile'
 
 class PdfStructure
   # @return [Array, Pages] array of pages
@@ -30,7 +31,6 @@ class PdfStructure
   # Convert to bmp file and store data in variable
   # @return [String] path to bmp image
   def fetch_bmp_stream
-    FileHelper.create_folder('/tmp/ruby/pdf-structure')
     temp_bmp_file = Tempfile.new(%w(pdf-parser .bmp))
     `convert "#{@file_path}" #{temp_bmp_file.path}`
     @bmp_stream = File.binread(temp_bmp_file.path)
