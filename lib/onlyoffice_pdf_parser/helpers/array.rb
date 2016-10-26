@@ -1,3 +1,4 @@
+# Monkey patch Array for new method
 class Array
   def get_array_inclusion_indexes(included_array)
     index_array = []
