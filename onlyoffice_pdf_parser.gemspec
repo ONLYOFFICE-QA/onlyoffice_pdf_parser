@@ -2,7 +2,7 @@ $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 require 'onlyoffice_pdf_parser/version'
 Gem::Specification.new do |s|
   s.name = 'onlyoffice_pdf_parser'
-  s.version = Version::STRING
+  s.version = OnlyofficePdfParser::Version::STRING
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 1.9'
   s.authors = ['Pavel Lobashov', 'Dmitry Rotaty']
