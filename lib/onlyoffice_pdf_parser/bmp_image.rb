@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'image_size'
 require 'rmagick'
-require_relative 'helpers/array'
+require_relative 'helpers/array_helper'
 require_relative 'helpers/cursor_point'
 include Magick
 
@@ -57,7 +57,7 @@ class BmpImage
     sub_image = BmpImage.new(path_to_sub_image)
     first_sub_image_line = sub_image.pixels.first
     @pixels.each_with_index do |current_line, image_line_index|
-      included_indexes = current_line.get_array_inclusion_indexes(first_sub_image_line)
+      included_indexes = ArrayHelper.get_array_inclusion_indexes(current_line, first_sub_image_line)
       included_indexes.each do |current_included_index|
         coordinates = CursorPoint.new(current_included_index % width, image_line_index)
         got_sub_image = get_sub_image(coordinates, sub_image.width, sub_image.height)
