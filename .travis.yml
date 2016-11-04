@@ -6,7 +6,6 @@ rvm:
 - 2.1
 matrix:
   allow_failures:
-  - rvm: ruby-head
   - rvm: 2.3.0
   - rvm: 2.2
 bundler_args: "--without development"
