@@ -8,6 +8,8 @@ module OnlyofficePdfParser
     include PdfReaderHelper
     # @return [Array, Pages] array of pages
     attr_accessor :pages
+    # @return [Number] page count of doc
+    attr_accessor :page_count
     # @return [String] page size of doc
     attr_accessor :page_size
     # @return [String] full path to file
@@ -88,6 +90,11 @@ module OnlyofficePdfParser
                           'Landscape ROC 16K' => '773.858 x 557.858',
                           'Landscape Envelope Choukei 3' => '665.858 x 339.874',
                           'Landscape Super B/A3' => '1367.72 x 936' }.freeze
+
+    # Get pdf page count without pdf open
+    def self.get_page_count(file_path)
+      PDF::Reader.new(file_path.to_s).page_count
+    end
 
     def self.parse(filename)
       pdfinfo = `pdfinfo "#{filename}"` # get info about pdf
