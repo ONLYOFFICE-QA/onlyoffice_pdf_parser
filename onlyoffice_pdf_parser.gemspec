@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/onlyoffice-testing-robot/onlyoffice_pdf_parser'
   s.add_runtime_dependency('rmagick', '~> 2')
   s.add_runtime_dependency('image_size', '~> 1')
-  s.add_runtime_dependency('pdf-reader', '~> 1')
+  s.add_runtime_dependency('pdf-reader', '~> 2')
   s.license = 'AGPL-3.0'
 end
