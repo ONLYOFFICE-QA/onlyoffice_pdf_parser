@@ -62,4 +62,14 @@ describe 'Check PDF parser' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/pdf_gridlines.pdf')
     expect(pdf_info.contain_pattern?('spec/pdf_examples/pdf_gridlines_pattern.bmp')).to be_truthy
   end
+
+  it 'check pdf_count method | one page' do
+    pdf_page_count = OnlyofficePdfParser::PdfParser.get_page_count('spec/pdf_examples/pdf_gridlines.pdf')
+    expect(pdf_page_count).to eq(1)
+  end
+
+  it 'check pdf_count method | five page' do
+    pdf_page_count = OnlyofficePdfParser::PdfParser.get_page_count('spec/pdf_examples/many_pages.pdf')
+    expect(pdf_page_count).to eq(5)
+  end
 end
