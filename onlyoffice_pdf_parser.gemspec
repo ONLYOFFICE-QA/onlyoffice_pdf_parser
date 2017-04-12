@@ -4,7 +4,6 @@ Gem::Specification.new do |s|
   s.name = 'onlyoffice_pdf_parser'
   s.version = OnlyofficePdfParser::Version::STRING
   s.platform = Gem::Platform::RUBY
-  s.required_ruby_version = ['>= 2.0', '< 2.2']
   s.authors = ['Pavel Lobashov', 'Dmitry Rotaty']
   s.summary = 'ONLYOFFICE Testrail Wrapper Gem'
   s.description = 'Wrapper for Testrail by OnlyOffice'
