@@ -6,12 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'lib/onlyoffice_pdf_parser/bmp_image.rb'
-
 # Offense count: 2
 Metrics/AbcSize:
   Max: 18
@@ -31,12 +25,3 @@ Metrics/LineLength:
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
   Max: 14
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AutoCorrectEncodingComment.
-# SupportedStyles: when_needed, always, never
-Style/Encoding:
-  Exclude:
-    - 'Gemfile'
-    - 'lib/onlyoffice_pdf_parser/bmp_image.rb'

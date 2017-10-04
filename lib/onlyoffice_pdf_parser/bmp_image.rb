@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'image_size'
 require 'rmagick'
 require_relative 'helpers/array_helper'
