@@ -40,10 +40,3 @@ Style/Encoding:
   Exclude:
     - 'Gemfile'
     - 'lib/onlyoffice_pdf_parser/bmp_image.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'lib/onlyoffice_pdf_parser/pdf_structure.rb'
