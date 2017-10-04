@@ -35,7 +35,7 @@ module OnlyofficePdfParser
     # Convert to bmp file and store data in variable
     # @return [String] path to bmp image
     def fetch_bmp_stream
-      temp_bmp_file = Tempfile.new(%w(pdf-parser .bmp))
+      temp_bmp_file = Tempfile.new(%w[pdf-parser .bmp])
       `convert "#{@file_path}" #{temp_bmp_file.path}`
       @bmp_stream = File.binread(temp_bmp_file.path)
       temp_bmp_file.unlink
@@ -43,7 +43,7 @@ module OnlyofficePdfParser
 
     # @return [True, false] Check if pdf file contains graphic pattern
     def contain_pattern?(path_to_patter)
-      bmp_image = Tempfile.new(%w(pdf-parser .bmp))
+      bmp_image = Tempfile.new(%w[pdf-parser .bmp])
       File.binwrite(bmp_image.path, @bmp_stream)
       bmp = BmpImage.new(bmp_image.path)
       bmp_image.unlink
