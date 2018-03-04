@@ -48,13 +48,11 @@ describe 'Check PDF parser' do
 
   it 'convert pdf to bmp' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/empty_font_name.pdf')
-    pdf_info.fetch_bmp_stream
     expect(pdf_info.bmp_stream.length).to be > 1000
   end
 
   it 'convert pdf to bmp file with space' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/space in font name.pdf')
-    pdf_info.fetch_bmp_stream
     expect(pdf_info.bmp_stream.length).to be > 1000
   end
 
