@@ -44,8 +44,8 @@ module OnlyofficePdfParser
 
     # @return [True, false] Check if pdf file contains graphic pattern
     def contain_pattern?(path_to_patter)
-      bmp_image = Tempfile.new(%w[pdf-parser .bmp])
       pages_in_bmp.each do |current_page|
+        bmp_image = Tempfile.new(%w[pdf-parser .bmp])
         File.binwrite(bmp_image.path, current_page)
         bmp = BmpImage.new(bmp_image.path)
         bmp_image.unlink
