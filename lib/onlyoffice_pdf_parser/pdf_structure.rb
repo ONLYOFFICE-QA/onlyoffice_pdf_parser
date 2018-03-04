@@ -1,10 +1,12 @@
 require 'pdf/reader'
 require 'tempfile'
 require_relative 'pdf_structure/pdf_reader_helper'
+require_relative 'pdf_structure/pdf_convert_to_bmp_helper'
 
 module OnlyofficePdfParser
   # Class for working and parsing PDF files
   class PdfStructure
+    include PdfConvertToBmpHelper
     include PdfReaderHelper
     # @return [Array, Pages] array of pages
     attr_accessor :pages
@@ -12,14 +14,22 @@ module OnlyofficePdfParser
     attr_accessor :page_size
     # @return [String] full path to file
     attr_accessor :file_path
-    # @return [String] stream of bmp file with content
-    attr_accessor :bmp_stream
+    # @return [Array<String>] bin representation of bmps
+    attr_reader :pages_in_bmp
 
     def initialize(pages: [], page_size: nil, file_path: nil)
       @file_path = file_path
       @pages = pages
       @page_size = page_size
+      @pages_in_bmp = []
     end
+
+    # @return [String] bmp stream for first page
+    def bmp_stream
+      @pages_in_bmp.first
+    end
+    extend Gem::Deprecate
+    deprecate :bmp_stream, 'pages_in_bmp.first', 2020, 1
 
     def [](parameter)
       case parameter
@@ -32,23 +42,17 @@ module OnlyofficePdfParser
       end
     end
 
-    # Convert to bmp file and store data in variable
-    # @return [String] path to bmp image
-    def fetch_bmp_stream
-      temp_bmp_file = Tempfile.new(%w[pdf-parser .bmp])
-      `convert "#{@file_path}" #{temp_bmp_file.path}`
-      @bmp_stream = File.binread(temp_bmp_file.path)
-      temp_bmp_file.unlink
-    end
-
     # @return [True, false] Check if pdf file contains graphic pattern
     def contain_pattern?(path_to_patter)
       bmp_image = Tempfile.new(%w[pdf-parser .bmp])
-      File.binwrite(bmp_image.path, @bmp_stream)
-      bmp = BmpImage.new(bmp_image.path)
-      bmp_image.unlink
-      array = bmp.get_sub_image_array(path_to_patter)
-      !array.empty?
+      pages_in_bmp.each do |current_page|
+        File.binwrite(bmp_image.path, current_page)
+        bmp = BmpImage.new(bmp_image.path)
+        bmp_image.unlink
+        array = bmp.get_sub_image_array(path_to_patter)
+        return true unless array.empty?
+      end
+      false
     end
 
     # Parse file using `pdf-reader` gem
@@ -94,7 +98,7 @@ module OnlyofficePdfParser
       page_size = PAGE_SIZE_FOR_PDF.key(pdfinfo.split('Page size:')[1].split('pts').first.strip) # change size to format
       file = PdfStructure.new(pages: [], page_size: page_size, file_path: filename)
       file.pdf_reader_parse
-      file.fetch_bmp_stream
+      file.fetch_bmp_binary
       file
     end
   end
