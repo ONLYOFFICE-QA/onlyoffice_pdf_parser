@@ -95,7 +95,7 @@ module OnlyofficePdfParser
     # @return [Void] Fill @pixel with data
     def fetch_pixels
       tmp_file = Tempfile.new('onlyoffice_pdf_parser')
-      File.open(tmp_file.path, 'w') { |file| file.write(data) }
+      File.open(tmp_file, 'w') { |file| file.write(data) }
       @pixels = ImageList.new(tmp_file.path).get_pixels(0, 0, width, height).each_slice(width).to_a
       tmp_file.unlink
     end
