@@ -20,12 +20,6 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 15
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'onlyoffice_pdf_parser.gemspec'
-
 # Offense count: 47
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
