@@ -1,5 +1,6 @@
 require 'pdf/reader'
 require 'tempfile'
+require_relative 'helpers/file_helper'
 require_relative 'pdf_structure/pdf_reader_helper'
 require_relative 'pdf_structure/pdf_convert_to_bmp_helper'
 
@@ -45,10 +46,7 @@ module OnlyofficePdfParser
     # @return [True, false] Check if pdf file contains graphic pattern
     def contain_pattern?(path_to_patter)
       pages_in_bmp.each do |current_page|
-        bmp_image = Tempfile.new(%w[pdf-parser .bmp])
-        File.binwrite(bmp_image.path, current_page)
-        bmp = BmpImage.new(bmp_image.path)
-        bmp_image.unlink
+        bmp = BmpImage.new(current_page)
         array = bmp.get_sub_image_array(path_to_patter)
         return true unless array.empty?
       end
