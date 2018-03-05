@@ -2,21 +2,23 @@ require 'image_size'
 require 'rmagick'
 require_relative 'helpers/array_helper'
 require_relative 'helpers/cursor_point'
-include Magick
 
 module OnlyofficePdfParser
   # class for storing bmp image pixels data
   class BmpImage
+    include Magick
     attr_accessor :path_to_image, :pixels, :width, :height
+    # @return [String] binary dat of file
+    attr_reader :data
 
-    def initialize(path_to_image = nil)
-      return if path_to_image.nil?
-      @path_to_image = path_to_image
-      image_size = ImageSize.new(File.open(path_to_image).read).size
+    def initialize(data = nil)
+      return if data.nil?
+      init_data(data)
+      image_size = ImageSize.new(@data).size
 
       @width = image_size.first
       @height = image_size.last
-      @pixels = ImageList.new(path_to_image).get_pixels(0, 0, @width, @height).each_slice(width).to_a
+      fetch_pixels
     end
 
     def to_s
@@ -74,6 +76,28 @@ module OnlyofficePdfParser
       coordinates_array.map do |current_coordinate|
         CursorPoint.new(current_coordinate.left - sub_image.width / 2, current_coordinate.top - sub_image.height / 2)
       end
+    end
+
+    private
+
+    # @param param [String] file path of file binaryt
+    # @return [Void] init class data
+    def init_data(param)
+      if OnlyofficePdfParser::FileHelper.file_path?(param)
+        @data = File.read(param)
+        @path_to_image = param
+      else
+        @data = param
+        @path_to_image = '[Binary Steam]'
+      end
+    end
+
+    # @return [Void] Fill @pixel with data
+    def fetch_pixels
+      tmp_file = Tempfile.new('onlyoffice_pdf_parser')
+      File.open(tmp_file.path, 'w') { |file| file.write(@data) }
+      @pixels = ImageList.new(tmp_file.path).get_pixels(0, 0, width, height).each_slice(width).to_a
+      tmp_file.unlink
     end
   end
 end
