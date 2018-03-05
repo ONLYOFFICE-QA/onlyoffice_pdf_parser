@@ -44,7 +44,7 @@ module OnlyofficePdfParser
         line_array = []
         width.times do |current_width|
           # If pixels match to near to the edge of right border of image, then end
-          return nil if pixels[start_point.top + current_height].nil?
+          return nil unless pixels[start_point.top + current_height]
           line_array << pixels[start_point.top + current_height][start_point.left + current_width]
         end
         pixels_array << line_array
