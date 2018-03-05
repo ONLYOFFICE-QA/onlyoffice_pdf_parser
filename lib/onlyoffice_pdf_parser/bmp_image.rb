@@ -12,7 +12,7 @@ module OnlyofficePdfParser
     attr_reader :data
 
     def initialize(data = nil)
-      return if data.nil?
+      return unless data
       init_data(data)
       image_size = ImageSize.new(@data).size
 
