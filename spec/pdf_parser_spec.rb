@@ -20,9 +20,16 @@ describe 'Check PDF parser' do
     expect(pdf_info[:pages].first[:fonts]).to eq('Times New Roman,Regular_Embedded')
   end
 
-  it 'Check PDF parser | Text with not custom page size' do
-    pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFNotCustomPageSize.pdf')
-    expect(pdf_info[:page_size]).to eq('B5')
+  describe 'Page size' do
+    it 'Check PDF parser | Text with not custom page size' do
+      pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/page_size/PDFNotCustomPageSize.pdf')
+      expect(pdf_info[:page_size]).to eq('B5')
+    end
+
+    it 'Check page size in decimal fraction in file' do
+      pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/page_size/a5_page_size_fraction.pdf')
+      expect(pdf_info[:page_size]).to eq('A5')
+    end
   end
 
   it 'Check PDF parser | Check for Glyph error' do # https://github.com/yob/pdf-reader/issues/124

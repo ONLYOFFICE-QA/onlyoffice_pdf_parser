@@ -11,17 +11,14 @@ module OnlyofficePdfParser
     include PdfReaderHelper
     # @return [Array, Pages] array of pages
     attr_accessor :pages
-    # @return [String] page size of doc
-    attr_accessor :page_size
     # @return [String] full path to file
     attr_accessor :file_path
     # @return [Array<String>] bin representation of bmps
     attr_reader :pages_in_bmp
 
-    def initialize(pages: [], page_size: nil, file_path: nil)
+    def initialize(pages: [], file_path: nil)
       @file_path = file_path
       @pages = pages
-      @page_size = page_size
       @pages_in_bmp = []
     end
 
@@ -63,40 +60,34 @@ module OnlyofficePdfParser
       end
     end
 
-    PAGE_SIZE_FOR_PDF = { 'US Letter' => '612 x 792',
-                          'US Legal' => '612 x 1008',
-                          'A4' => '595.276 x 841.89',
-                          'A5' => '419.811 x 594.992',
-                          'B5' => '498.898 x 708.945',
-                          'Envelope #10' => '297.071 x 684',
-                          'Envelope DL' => '312.094 x 623.906',
-                          'Tabloid' => '792 x 1223.72',
-                          'A3' => '841.89 x 1190.83',
-                          'Tabloid Oversize' => '864 x 1295.72',
-                          'ROC 16K' => '557.858 x 773.858',
-                          'Envelope Choukei 3' => '339.874 x 665.858',
-                          'Super B/A3' => '936 x 1367.72',
+    def page_size
+      return @page_size if @page_size
+      pdfinfo = `pdfinfo "#{@file_path}"`
+      page_size_fraction = pdfinfo.split('Page size:')[1].split('pts').first.strip.split(', ').first.split(' x ')
+      page_size = page_size_fraction.map { |size| size.to_f.round }
+      @page_size = PAGE_SIZE_FOR_PDF.key(page_size)
+      @page_size ||= "Landscape #{PAGE_SIZE_FOR_PDF.key(page_size.revert)}"
+    end
 
-                          'Landscape US Letter' => '792 x 612',
-                          'Landscape US Legal' => '1008 x 612',
-                          'Landscape A4' => '841.89 x 595.276',
-                          'Landscape A5' => '594.992 x 419.811',
-                          'Landscape B5' => '708.945 x 498.898',
-                          'Landscape Envelope #10' => '684 x 297.071',
-                          'Landscape Envelope DL' => '623.906 x 312.094',
-                          'Landscape Tabloid' => '1223.72 x 792',
-                          'Landscape A3' => '1190.83 x 841.89',
-                          'Landscape Tabloid Oversize' => '1295.72 x 864',
-                          'Landscape ROC 16K' => '773.858 x 557.858',
-                          'Landscape Envelope Choukei 3' => '665.858 x 339.874',
-                          'Landscape Super B/A3' => '1367.72 x 936' }.freeze
+    PAGE_SIZE_FOR_PDF = { 'US Letter' => [612, 792],
+                          'US Legal' => [612, 1008],
+                          'A4' => [595, 842],
+                          'A5' => [420, 595],
+                          'B5' => [499, 709],
+                          'Envelope #10' => [297, 684],
+                          'Envelope DL' => [312, 624],
+                          'Tabloid' => [792, 1224],
+                          'A3' => [842, 1191],
+                          'Tabloid Oversize' => [864, 1296],
+                          'ROC 16K' => [558, 774],
+                          'Envelope Choukei 3' => [340, 666],
+                          'Super B/A3' => [936, 1368] }.freeze
 
     def self.parse(filename)
-      pdfinfo = `pdfinfo "#{filename}"` # get info about pdf
-      page_size = PAGE_SIZE_FOR_PDF.key(pdfinfo.split('Page size:')[1].split('pts').first.strip) # change size to format
-      file = PdfStructure.new(pages: [], page_size: page_size, file_path: filename)
+      file = PdfStructure.new(pages: [], file_path: filename)
       file.pdf_reader_parse
       file.fetch_bmp_binary
+      file.page_size
       file
     end
   end
