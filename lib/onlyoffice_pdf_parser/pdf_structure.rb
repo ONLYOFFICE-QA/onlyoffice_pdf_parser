@@ -64,7 +64,7 @@ module OnlyofficePdfParser
       return @page_size if @page_size
       pdfinfo = `pdfinfo "#{@file_path}"`
       page_size_fraction = pdfinfo.split('Page size:')[1].split('pts').first.strip.split(', ').first.split(' x ')
-      page_size = page_size_fraction.map { |i| i.to_f.round }
+      page_size = page_size_fraction.map { |size| size.to_f.round }
       @page_size = PAGE_SIZE_FOR_PDF.key(page_size)
       @page_size ||= "Landscape #{PAGE_SIZE_FOR_PDF.key(page_size.revert)}"
     end
