@@ -60,13 +60,19 @@ module OnlyofficePdfParser
       end
     end
 
-    def page_size
-      return @page_size if @page_size
+    # @return [Array <Integer>] page size of pdf in points
+    def page_size_points
+      return @page_size_points if @page_size_points
+
       pdfinfo = `pdfinfo "#{@file_path}"`
       page_size_fraction = pdfinfo.split('Page size:')[1].split('pts').first.strip.split(', ').first.split(' x ')
-      page_size = page_size_fraction.map { |size| size.to_f.round }
-      @page_size = PAGE_SIZE_FOR_PDF.key(page_size)
-      @page_size ||= "Landscape #{PAGE_SIZE_FOR_PDF.key(page_size.reverse)}"
+      @page_size_points = page_size_fraction.map { |size| size.to_f.round }
+    end
+
+    # @return [String, nil] name of page size
+    def page_size
+      @page_size = PAGE_SIZE_FOR_PDF.key(page_size_points)
+      @page_size ||= "Landscape #{PAGE_SIZE_FOR_PDF.key(page_size_points.reverse)}"
     end
 
     PAGE_SIZE_FOR_PDF = { 'US Letter' => [612, 792],
