@@ -13,6 +13,7 @@ module OnlyofficePdfParser
 
     def initialize(param = nil)
       return unless param
+
       init_data(param)
       image_size = ImageSize.new(data).size
 
@@ -27,6 +28,7 @@ module OnlyofficePdfParser
 
     def ==(other)
       return false unless other.width == width && other.height == height
+
       pixels.each_with_index do |row, row_index|
         row.each_with_index do |pixel, pixel_index|
           other_pixel = other.pixels[row_index][pixel_index]
@@ -46,6 +48,7 @@ module OnlyofficePdfParser
           pixel_line = pixels[start_point.top + current_height]
           # If pixels match to near to the edge of right border of image, then end
           return nil unless pixel_line
+
           line_array << pixel_line[start_point.left + current_width]
         end
         pixels_array << line_array
