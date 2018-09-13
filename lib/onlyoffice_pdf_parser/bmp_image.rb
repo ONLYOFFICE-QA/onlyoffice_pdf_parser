@@ -71,14 +71,6 @@ module OnlyofficePdfParser
       coordinates_array
     end
 
-    def get_sub_image_center_array(path_to_sub_image)
-      sub_image = BmpImage.new(path_to_sub_image)
-      coordinates_array = get_sub_image_array(path_to_sub_image)
-      coordinates_array.map do |current_coordinate|
-        CursorPoint.new(current_coordinate.left - sub_image.width / 2, current_coordinate.top - sub_image.height / 2)
-      end
-    end
-
     private
 
     # @param param [String] file path of file binaryt

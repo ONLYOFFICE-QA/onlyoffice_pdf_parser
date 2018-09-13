@@ -12,3 +12,7 @@
 ### Fixes
 
 * Fix detecting landscape sizes
+
+### Removal
+
+* Remove unused `BmpImage#get_sub_image_center_array`
