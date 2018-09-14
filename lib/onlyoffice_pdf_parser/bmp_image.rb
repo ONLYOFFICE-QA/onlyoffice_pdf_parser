@@ -66,8 +66,10 @@ module OnlyofficePdfParser
       pixels.each_with_index do |current_line, image_line_index|
         included_indexes = ArrayHelper.get_array_inclusion_indexes(current_line, first_sub_image_line)
         included_indexes.each do |current_included_index|
-          coordinates = CursorPoint.new(current_included_index % width, image_line_index)
-          got_sub_image = get_sub_image(coordinates, sub_image.width, sub_image.height)
+          coordinates = image_location_start_find(current_included_index, image_line_index)
+          got_sub_image = get_sub_image(coordinates,
+                                        sub_image.width,
+                                        sub_image.height)
           coordinates_array << coordinates if got_sub_image == sub_image
         end
       end
@@ -94,6 +96,13 @@ module OnlyofficePdfParser
       File.open(tmp_file, 'wb') { |file| file.write(data) }
       @pixels = ImageList.new(tmp_file.path).get_pixels(0, 0, width, height).each_slice(width).to_a
       tmp_file.unlink
+    end
+
+    # @param x_coordinate [Integer] x of start search
+    # @param y_coordinate [Integer] y of start search
+    # @return [CursorPoint] point to start
+    def image_location_start_find(x_coordinate, y_coordinate)
+      CursorPoint.new(x_coordinate % width, y_coordinate)
     end
   end
 end
