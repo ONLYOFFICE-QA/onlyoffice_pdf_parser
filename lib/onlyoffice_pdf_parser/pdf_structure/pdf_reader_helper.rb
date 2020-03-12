@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficePdfParser
   # Module for helper methods for `pdf-reader` gem
   module PdfReaderHelper
