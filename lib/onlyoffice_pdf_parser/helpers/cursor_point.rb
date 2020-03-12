@@ -26,8 +26,6 @@ module OnlyofficePdfParser
     def ==(other)
       if other.respond_to?(:left) && other.respond_to?(:top)
         @left == other.left && @top == other.top
-      elsif other.is_a? Coordinates
-        @left == other.row && @top == other.column
       else
         false
       end
