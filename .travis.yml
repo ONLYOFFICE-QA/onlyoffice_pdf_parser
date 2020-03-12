@@ -12,7 +12,7 @@ matrix:
   - rvm: 2.2.10
 bundler_args: "--without development"
 script:
-  - sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
+  - sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
   - bundle exec rspec
 addons:
   apt:
