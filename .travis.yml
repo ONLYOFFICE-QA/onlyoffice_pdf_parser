@@ -1,15 +1,11 @@
 language: ruby
 rvm:
   - ruby-head
-  - 2.6.0
-  - 2.5.3
-  - 2.4.5
-  - 2.3.8
-  - 2.2.10
-  - 2.1.10
-matrix:
-  allow_failures:
-  - rvm: 2.2.10
+  - 2.7
+  - 2.6
+  - 2.5
+  - 2.4
+  - 2.3
 bundler_args: "--without development"
 script:
   - sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
