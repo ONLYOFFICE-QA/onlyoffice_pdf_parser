@@ -16,3 +16,4 @@
 ### Removal
 
 * Remove unused `BmpImage#get_sub_image_center_array`
+* Remove ability to compare `CursorPoint` and `Coordinates`
