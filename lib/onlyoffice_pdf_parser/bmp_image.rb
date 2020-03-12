@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'image_size'
 require 'rmagick'
 require_relative 'helpers/array_helper'

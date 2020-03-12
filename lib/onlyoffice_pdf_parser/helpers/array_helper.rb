@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficePdfParser
   # Methods to help working with array
   class ArrayHelper

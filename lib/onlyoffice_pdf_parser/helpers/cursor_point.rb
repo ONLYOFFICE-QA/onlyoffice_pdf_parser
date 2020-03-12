@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OnlyofficePdfParser
   # Class for working with cursor coordinates
   class CursorPoint

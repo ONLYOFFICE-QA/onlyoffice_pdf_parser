@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pdf/reader'
 require 'tempfile'
 require_relative 'helpers/file_helper'

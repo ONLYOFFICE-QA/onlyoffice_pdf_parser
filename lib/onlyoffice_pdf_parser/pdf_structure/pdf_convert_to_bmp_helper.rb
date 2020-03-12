@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helper methods to convert pdf to bmp
 module PdfConvertToBmpHelper
   # Fill @pages_bmp with data
