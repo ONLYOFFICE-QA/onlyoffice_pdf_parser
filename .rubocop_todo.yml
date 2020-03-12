@@ -17,14 +17,6 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 15
 
-# Offense count: 4
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/array_spec.rb'
-    - 'spec/bmp_image_spec.rb'
-    - 'spec/multipage_bmp_spec.rb'
-    - 'spec/pdf_parser_spec.rb'
-
 # Offense count: 49
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.

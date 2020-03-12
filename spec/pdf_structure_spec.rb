@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Check PDF parser' do
+describe PdfStructure do
   it 'Check filename attribue' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFText.pdf')
     expect(pdf_info.file_path).to eq('spec/pdf_examples/PDFText.pdf')

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Check array custom functions' do
+describe ArrayHelper do
   it 'get_array_inclusion_indexes one entry' do
     first_array = [1, 2, 3, 4, 5]
     second_array = [2, 3]
