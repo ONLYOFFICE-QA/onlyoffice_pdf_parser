@@ -12,6 +12,11 @@ describe 'Check PDF parser' do
     expect(pdf_info[:pages].first[:text]).to eq('Text')
   end
 
+  it 'PdfStructure raise exception on incorrect param' do
+    pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFText.pdf')
+    expect { pdf_info[:foo] }.to raise_error(/foo/)
+  end
+
   it 'Check PDF parser | Text with spaces' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFTextWithSpaces.pdf')
     expect(pdf_info[:pages].first[:text]).to eq('Text with spaces')
