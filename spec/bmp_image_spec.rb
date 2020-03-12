@@ -35,6 +35,12 @@ describe 'Check BmpImage class' do
     expect(bmp.get_sub_image(OnlyofficePdfParser::CursorPoint.new(1, 1), 1, 2).pixels).to eq([[4], [7]])
   end
 
+  it 'BmpImage to_s equal path to image' do
+    image_path = 'spec/bmp_image_examples/SE_screenshot.bmp'
+    file = OnlyofficePdfParser::BmpImage.new('spec/bmp_image_examples/SE_screenshot.bmp')
+    expect(file.to_s).to eq(image_path)
+  end
+
   it 'Check subimage of screenshot' do
     file = OnlyofficePdfParser::BmpImage.new('spec/bmp_image_examples/SE_screenshot.bmp')
     sub_image = file.get_sub_image(OnlyofficePdfParser::CursorPoint.new(86, 934), 23, 16)
