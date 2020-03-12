@@ -27,6 +27,10 @@ describe OnlyofficePdfParser::CursorPoint do
     it 'Cursor is not equal another' do
       expect(cursor).not_to eq(OnlyofficePdfParser::CursorPoint.new(6, 10))
     end
+
+    it 'Cursor is not equal to another object' do
+      expect(cursor).not_to eq(Object.new)
+    end
   end
 
   describe '#[]' do
