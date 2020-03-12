@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe OnlyofficePdfParser::CursorPoint do
-  let(:cursor) { OnlyofficePdfParser::CursorPoint.new(5, 10) }
+  let(:cursor) { described_class.new(5, 10) }
 
   it '#dup is equal to itself' do
     expect(cursor.dup).to eq(cursor)
@@ -25,7 +25,7 @@ describe OnlyofficePdfParser::CursorPoint do
     end
 
     it 'Cursor is not equal another' do
-      expect(cursor).not_to eq(OnlyofficePdfParser::CursorPoint.new(6, 10))
+      expect(cursor).not_to eq(described_class.new(6, 10))
     end
 
     it 'Cursor is not equal to another object' do

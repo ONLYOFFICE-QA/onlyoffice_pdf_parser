@@ -2,11 +2,12 @@
 
 require 'spec_helper'
 
-describe 'Check PDF parser' do
+describe OnlyofficePdfParser::PdfStructure do
   it 'Check filename attribue' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFText.pdf')
     expect(pdf_info.file_path).to eq('spec/pdf_examples/PDFText.pdf')
   end
+
   it 'Check PDF parser | Text without spaces' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFText.pdf')
     expect(pdf_info[:pages].first[:text]).to eq('Text')
@@ -77,6 +78,6 @@ describe 'Check PDF parser' do
 
   it 'check pdf for pattern' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/pdf_gridlines.pdf')
-    expect(pdf_info.contain_pattern?('spec/pdf_examples/pdf_gridlines_pattern.bmp')).to be_truthy
+    expect(pdf_info).to be_contain_pattern('spec/pdf_examples/pdf_gridlines_pattern.bmp')
   end
 end
