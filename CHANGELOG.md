@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+# 0.1.1 (2020-03-13)
+
 ### New features
 
 * Add task for release gem on rubygems and github
