@@ -24,13 +24,6 @@ module OnlyofficePdfParser
       @pages_in_bmp = []
     end
 
-    # @return [String] bmp stream for first page
-    def bmp_stream
-      @pages_in_bmp.first
-    end
-    extend Gem::Deprecate
-    deprecate :bmp_stream, 'pages_in_bmp.first', 2020, 1
-
     def [](parameter)
       case parameter
       when :pages

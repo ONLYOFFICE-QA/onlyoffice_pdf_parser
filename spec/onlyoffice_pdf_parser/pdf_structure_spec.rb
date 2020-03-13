@@ -68,12 +68,12 @@ describe OnlyofficePdfParser::PdfStructure do
 
   it 'convert pdf to bmp' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/empty_font_name.pdf')
-    expect(pdf_info.bmp_stream.length).to be > 1000
+    expect(pdf_info.pages_in_bmp.first.length).to be > 1000
   end
 
   it 'convert pdf to bmp file with space' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/space in font name.pdf')
-    expect(pdf_info.bmp_stream.length).to be > 1000
+    expect(pdf_info.pages_in_bmp.first.length).to be > 1000
   end
 
   it 'check pdf for pattern' do
