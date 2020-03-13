@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.authors = ['Pavel Lobashov', 'Dmitry Rotaty']
   s.summary = 'ONLYOFFICE Testrail Wrapper Gem'
-  s.description = 'Wrapper for Testrail by OnlyOffice'
+  s.description = 'Library for parsing, converting and extracting PDF data'
   s.email = ['shockwavenn@gmail.com', 'kvazilife@gmail.com']
   s.files = `git ls-files lib LICENSE.txt README.md`.split($RS)
   s.homepage = 'https://github.com/onlyoffice-testing-robot/onlyoffice_pdf_parser'
