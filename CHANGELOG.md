@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Fixes
+
+* Fix command to push gem to github package
+
 # 0.1.1 (2020-03-13)
 
 ### New features
