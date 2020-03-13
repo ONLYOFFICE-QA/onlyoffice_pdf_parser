@@ -5,7 +5,6 @@
 ### New features
 
 * Add task for release gem on rubygems and github
-* Add more info in gem spec (like metadata)
 
 ### Fixes
 
