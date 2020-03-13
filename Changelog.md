@@ -6,6 +6,10 @@
 
 * Add task for release gem on rubygems and github
 
+### Fixes
+
+* Fix gem description
+
 ## 0.1.0 (2020-03-13)
 
 ### New features
