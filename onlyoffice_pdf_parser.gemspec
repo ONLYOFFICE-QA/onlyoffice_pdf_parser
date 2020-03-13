@@ -23,6 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '>= 2', '< 5')
   s.add_development_dependency('rake', '~> 13.0')
-  s.add_development_dependency('rspec', '~> 3.0')
   s.license = 'AGPL-3.0'
 end
