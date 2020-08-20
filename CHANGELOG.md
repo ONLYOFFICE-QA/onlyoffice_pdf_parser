@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Use GitHub Actions instead of TravisCI
+
 # 0.1.2 (2020-03-13)
 
 ### Fixes
