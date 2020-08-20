@@ -13,7 +13,9 @@ module OnlyofficePdfParser
     # @return [String] binary dat of file
     attr_reader :data
 
-    def initialize(param = nil)
+    def initialize(param = nil, width: nil, height: nil)
+      @width = width
+      @height = height
       return unless param
 
       init_data(param)
@@ -42,7 +44,7 @@ module OnlyofficePdfParser
     end
 
     def get_sub_image(start_point = CursorPoint.new(0, 0), width = 0, height = 0)
-      sub_image = BmpImage.new
+      sub_image = BmpImage.new(nil, width: width, height: height)
       pixels_array = []
       height.times do |current_height|
         line_array = []
@@ -56,8 +58,6 @@ module OnlyofficePdfParser
         pixels_array << line_array
       end
       sub_image.pixels = pixels_array
-      sub_image.width = width
-      sub_image.height = height
       sub_image
     end
 
