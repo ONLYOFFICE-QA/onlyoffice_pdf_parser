@@ -5,19 +5,20 @@
 ### New Features
 
 * Default `rake` task to run tests
+* Add check by `markdownlint` in CI
 
 ### Changes
 
 * Use GitHub Actions instead of TravisCI
 * Use `simplecov` instead of `codecov` for test covarage
 
-# 0.1.2 (2020-03-13)
+## 0.1.2 (2020-03-13)
 
 ### Fixes
 
 * Fix command to push gem to github package
 
-# 0.1.1 (2020-03-13)
+## 0.1.1 (2020-03-13)
 
 ### New features
 

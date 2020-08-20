@@ -2,9 +2,9 @@
 
 It is gem for parsing pdf files.
 
-### Example
+## Example
 
-```
+```ruby
 require 'onlyoffice_pdf_parser'
 
 OnlyofficePdfParser::PdfParser.parse('Text.pdf')
