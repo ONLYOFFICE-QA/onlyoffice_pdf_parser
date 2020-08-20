@@ -28,5 +28,5 @@ jobs:
       run: cat coverage/.last_run.json | jq '.result.covered_percent' | grep -q '100'
     - name: Check markdown files using `markdownlint`
       run: |
-        npm install -g markdownlint-cli
+        sudo npm install -g markdownlint-cli
         markdownlint *.md
