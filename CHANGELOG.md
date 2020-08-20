@@ -15,6 +15,7 @@
 * Use GitHub Actions instead of TravisCI
 * Use `simplecov` instead of `codecov` for test covarage
 * Freeze specific `rubocop` and it's extensions versions in `gemspec`
+* Drop ruby 2.4 support, since it's EOLed
 
 ## 0.1.2 (2020-03-13)
 

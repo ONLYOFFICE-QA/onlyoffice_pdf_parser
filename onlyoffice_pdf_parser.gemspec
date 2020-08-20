@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.name = 'onlyoffice_pdf_parser'
   s.version = OnlyofficePdfParser::Version::STRING
   s.platform = Gem::Platform::RUBY
+  s.required_ruby_version = '>= 2.5'
   s.authors = ['Pavel Lobashov', 'Dmitry Rotaty']
   s.summary = 'ONLYOFFICE PDF Parser Gem'
   s.description = 'Library for parsing, converting and extracting PDF data'
