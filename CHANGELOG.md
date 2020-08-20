@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Default `rake` task to run tests
+
 ### Changes
 
 * Use GitHub Actions instead of TravisCI
