@@ -28,9 +28,3 @@ Metrics/BlockLength:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods.
 Metrics/MethodLength:
   Max: 15
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/RedundantFileExtensionInRequire:
-  Exclude:
-    - 'lib/onlyoffice_pdf_parser.rb'
