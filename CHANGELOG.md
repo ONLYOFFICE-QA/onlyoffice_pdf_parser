@@ -6,11 +6,15 @@
 
 * Default `rake` task to run tests
 * Add check by `markdownlint` in CI
+* Add check by `rubocop` in CI
+* Add `rubocop-rake` support
+* Fixes from update `rubocop` to `0.89.1
 
 ### Changes
 
 * Use GitHub Actions instead of TravisCI
 * Use `simplecov` instead of `codecov` for test covarage
+* Freeze specific `rubocop` and it's extensions versions in `gemspec`
 
 ## 0.1.2 (2020-03-13)
 
