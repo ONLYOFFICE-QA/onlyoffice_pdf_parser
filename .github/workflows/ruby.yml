@@ -24,3 +24,5 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rake
+    - name: Check `simplecov` result coverage
+      run: cat coverage/.last_run.json | jq '.result.covered_percent' | grep -q '100'

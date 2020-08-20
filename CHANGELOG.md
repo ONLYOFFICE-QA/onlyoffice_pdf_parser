@@ -9,6 +9,7 @@
 ### Changes
 
 * Use GitHub Actions instead of TravisCI
+* Use `simplecov` instead of `codecov` for test covarage
 
 # 0.1.2 (2020-03-13)
 
