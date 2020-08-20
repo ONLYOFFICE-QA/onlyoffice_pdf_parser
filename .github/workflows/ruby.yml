@@ -1,0 +1,26 @@
+name: Ruby
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [2.4, 2.5, 2.6, 2.7, head]
+    steps:
+    - name: Setup system requirements
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install ghostscript \
+                                poppler-utils
+    - name: Allow ImageMagick PDF policy
+      run: sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
+    - uses: actions/checkout@v2
+    - name: Set up Ruby ${{ matrix.ruby }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Build and test with Rake
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake

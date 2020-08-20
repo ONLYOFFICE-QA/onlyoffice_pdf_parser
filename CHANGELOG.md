@@ -2,6 +2,14 @@
 
 ## master (unreleased)
 
+### New Features
+
+* Default `rake` task to run tests
+
+### Changes
+
+* Use GitHub Actions instead of TravisCI
+
 # 0.1.2 (2020-03-13)
 
 ### Fixes
