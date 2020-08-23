@@ -24,6 +24,9 @@ module OnlyofficePdfParser
       @pages_in_bmp = []
     end
 
+    # Accessor of attributes like hash
+    # @param parameter [Symbol] attribute name
+    # @return [Object] value of attribute
     def [](parameter)
       case parameter
       when :pages
@@ -70,6 +73,7 @@ module OnlyofficePdfParser
       @page_size ||= "Landscape #{PAGE_SIZE_FOR_PDF.key(page_size_points.reverse)}"
     end
 
+    # @return [Hash] list of default page size and names
     PAGE_SIZE_FOR_PDF = { 'US Letter' => [612, 792],
                           'US Legal' => [612, 1008],
                           'A4' => [595, 842],
@@ -84,6 +88,9 @@ module OnlyofficePdfParser
                           'Envelope Choukei 3' => [340, 666],
                           'Super B/A3' => [936, 1368] }.freeze
 
+    # Parse file
+    # @param filename [String] path to file
+    # @return [PdfStructure] result of parse
     def self.parse(filename)
       file = PdfStructure.new(pages: [], file_path: filename)
       file.pdf_reader_parse
@@ -93,5 +100,6 @@ module OnlyofficePdfParser
     end
   end
 
+  # Alias for object
   PdfParser = PdfStructure
 end
