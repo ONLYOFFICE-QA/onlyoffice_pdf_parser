@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.2.0 (2020-08-23)
+
 ### New Features
 
 * Default `rake` task to run tests
