@@ -11,6 +11,7 @@
 * Fixes from update `rubocop` to `0.89.1`
 * Add support of `parallel_rspec` to speed-up tests
 * Add missing docs and CI check that 100% code documented
+* Add info to README about installing `pdfinfo`
 
 ### Changes
 
