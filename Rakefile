@@ -7,12 +7,14 @@ RSpec::Core::RakeTask.new(:spec)
 
 task default: :parallel_rspec
 
-desc 'Release gem '
+desc 'Release gem'
 task :release_github_rubygems do
   Rake::Task['release'].invoke
-  `gem push --key github \
-   --host https://rubygems.pkg.github.com/onlyoffice-testing-robot \
-   pkg/onlyoffice_pdf_parser-#{OnlyofficePdfParser::Version::STRING}.gem`
+  gem_name = "pkg/#{OnlyofficePdfParser::Name::STRING}-"\
+              "#{OnlyofficePdfParser::Version::STRING}.gem"
+  sh('gem push --key github '\
+   '--host https://rubygems.pkg.github.com/onlyoffice_testing_robot '\
+   "#{gem_name}")
 end
 
 desc 'Run tests in parallel'
