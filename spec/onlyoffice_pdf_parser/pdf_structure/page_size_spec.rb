@@ -17,4 +17,9 @@ describe OnlyofficePdfParser::PdfStructure, '#page_size' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/page_size/a5_page_size_fraction.pdf')
     expect(pdf_info[:page_size]).to eq('A5')
   end
+
+  it 'Check PDF parser | Check for Glyph error' do # https://github.com/yob/pdf-reader/issues/124
+    pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/pdf_unknown_glyph_width_error.pdf')
+    expect(pdf_info[:page_size]).to eq('A4')
+  end
 end

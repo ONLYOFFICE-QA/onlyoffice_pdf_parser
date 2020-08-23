@@ -28,11 +28,6 @@ describe OnlyofficePdfParser::PdfStructure do
     expect(pdf_info[:pages].first[:fonts]).to eq('Times New Roman,Regular_Embedded')
   end
 
-  it 'Check PDF parser | Check for Glyph error' do # https://github.com/yob/pdf-reader/issues/124
-    pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/pdf_unknown_glyph_width_error.pdf')
-    expect(pdf_info[:page_size]).to eq('A4')
-  end
-
   it 'Check PDF parser | Check for font in 1.7' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/pdf_font_1.7.pdf')
     expect(pdf_info[:pages].first[:fonts]).to eq('Andale Mono')
