@@ -19,6 +19,7 @@
 * Freeze specific `rubocop` and it's extensions versions in `gemspec`
 * Drop ruby 2.4 support, since it's EOLed
 * Store gem name in const and use it from there
+* All dev dependencies frozen in `gemspec`
 
 ## 0.1.2 (2020-03-13)
 
