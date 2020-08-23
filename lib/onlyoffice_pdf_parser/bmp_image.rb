@@ -26,10 +26,14 @@ module OnlyofficePdfParser
       fetch_pixels
     end
 
+    # @return [String] convert object to string
     def to_s
       path_to_image
     end
 
+    # Compare object with other
+    # @param other [Object] object to compare
+    # @return [True, False] result of comparison
     def ==(other)
       return false unless other.width == width && other.height == height
 
@@ -43,6 +47,11 @@ module OnlyofficePdfParser
       true
     end
 
+    # Get sub image from coordinates
+    # @param start_point [CursorPoint] top left coordinates to get
+    # @param width [Integer] width to get
+    # @param height [Integer] height to get
+    # @return [BmpImage] result
     def get_sub_image(start_point = CursorPoint.new(0, 0), width = 0, height = 0)
       sub_image = BmpImage.new(nil, width: width, height: height)
       pixels_array = []
@@ -61,6 +70,9 @@ module OnlyofficePdfParser
       sub_image
     end
 
+    # Get sub image from file pattern coordinates
+    # @param path_to_sub_image [String] path to pattern to find
+    # @return [Array<CursorPoint>] result
     def get_sub_image_array(path_to_sub_image)
       coordinates_array = []
       sub_image = BmpImage.new(path_to_sub_image)
