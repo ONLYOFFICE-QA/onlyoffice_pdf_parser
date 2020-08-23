@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.2.1 (2020-08-23)
+
+### Fixes
+
+* Fix incorrect username for GitHub Packages
+
 ## 0.2.0 (2020-08-23)
 
 ### New Features

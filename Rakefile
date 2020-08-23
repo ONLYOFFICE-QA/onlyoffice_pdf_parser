@@ -13,7 +13,7 @@ task :release_github_rubygems do
   gem_name = "pkg/#{OnlyofficePdfParser::Name::STRING}-"\
               "#{OnlyofficePdfParser::Version::STRING}.gem"
   sh('gem push --key github '\
-   '--host https://rubygems.pkg.github.com/onlyoffice_testing_robot '\
+   '--host https://rubygems.pkg.github.com/onlyoffice-testing-robot '\
    "#{gem_name}")
 end
 
