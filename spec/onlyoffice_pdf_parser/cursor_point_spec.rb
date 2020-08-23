@@ -19,20 +19,6 @@ describe OnlyofficePdfParser::CursorPoint do
     end
   end
 
-  describe '#==' do
-    it 'Cursor is equal itself' do
-      expect(cursor).to eq(cursor)
-    end
-
-    it 'Cursor is not equal another' do
-      expect(cursor).not_to eq(described_class.new(6, 10))
-    end
-
-    it 'Cursor is not equal to another object' do
-      expect(cursor).not_to eq(Object.new)
-    end
-  end
-
   describe '#[]' do
     it 'Cursor[:width] return correct value' do
       expect(cursor[:width]).to eq(5)
