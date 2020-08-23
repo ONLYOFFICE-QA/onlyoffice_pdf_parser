@@ -25,12 +25,15 @@ Gem::Specification.new do |s|
   s.add_dependency('image_size', '~> 2')
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '>= 2', '< 5')
+  s.add_development_dependency('overcommit', '0.55.0')
   s.add_development_dependency('parallel_tests', '3.1.0')
-  s.add_development_dependency('rake', '~> 13.0')
+  s.add_development_dependency('rake', '13.0.1')
+  s.add_development_dependency('rspec', '3.9.0')
   s.add_development_dependency('rubocop', '0.89.1')
   s.add_development_dependency('rubocop-performance', '1.7.1')
   s.add_development_dependency('rubocop-rake', '0.5.1')
   s.add_development_dependency('rubocop-rspec', '1.43.1')
+  s.add_development_dependency('simplecov', '0.19.0')
   s.add_development_dependency('yard', '0.9.25')
   s.license = 'AGPL-3.0'
 end
