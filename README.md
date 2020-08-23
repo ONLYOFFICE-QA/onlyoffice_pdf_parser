@@ -7,7 +7,7 @@ It is gem for parsing pdf files.
 1. Install `pdfinfo` app, part of `poppler-utils`
 
    * Debian-Based Linux:
-    
+
        ```shell script
        sudo apt-get install poppler-utils
        ```
