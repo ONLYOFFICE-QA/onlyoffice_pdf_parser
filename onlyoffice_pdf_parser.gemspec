@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency('image_size', '~> 2')
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '>= 2', '< 5')
+  s.add_development_dependency('parallel_tests', '3.1.0')
   s.add_development_dependency('rake', '~> 13.0')
   s.add_development_dependency('rubocop', '0.89.1')
   s.add_development_dependency('rubocop-performance', '1.7.1')

@@ -9,6 +9,7 @@
 * Add check by `rubocop` in CI
 * Add `rubocop-rake` support
 * Fixes from update `rubocop` to `0.89.1
+* Add support of `parallel_rspec` to speed-up tests
 
 ### Changes
 
