@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency('image_size', '~> 2')
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '>= 2', '< 5')
-  s.add_development_dependency('overcommit', '0.56.0')
+  s.add_development_dependency('overcommit', '0.57.0')
   s.add_development_dependency('parallel_tests', '3.3.0')
   s.add_development_dependency('rake', '13.0.1')
   s.add_development_dependency('rspec', '3.9.0')
