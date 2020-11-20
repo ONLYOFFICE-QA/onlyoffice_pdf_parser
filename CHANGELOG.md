@@ -10,6 +10,7 @@
 
 * Allow failures on `ruby-head` in CI
 * Store all dependencies versions in `Gemfile.lock`
+* Move repo to `ONLYOFFICE-QA` organization
 
 ## 0.2.1 (2020-08-23)
 
