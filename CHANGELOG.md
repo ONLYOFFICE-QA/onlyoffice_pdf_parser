@@ -5,6 +5,7 @@
 ### Changes
 
 * Allow failures on `ruby-head` in CI
+* Store all dependencies versions in `Gemfile.lock`
 
 ## 0.2.1 (2020-08-23)
 
