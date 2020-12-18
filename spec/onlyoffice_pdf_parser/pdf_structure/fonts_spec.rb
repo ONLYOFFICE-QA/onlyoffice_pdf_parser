@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe OnlyofficePdfParser::PdfStructure do
+describe OnlyofficePdfParser::PdfStructure, '#fonts' do
   it 'Check PDF parser | Text with not custom font' do
     pdf_info = OnlyofficePdfParser::PdfParser.parse('spec/pdf_examples/PDFNotCustomFont.pdf')
     expect(pdf_info[:pages].first[:fonts]).to eq('Times New Roman,Regular_Embedded')
