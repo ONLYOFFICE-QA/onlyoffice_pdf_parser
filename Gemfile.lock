@@ -9,7 +9,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    Ascii85 (1.0.3)
+    Ascii85 (1.1.0)
     afm (0.2.2)
     ast (2.4.2)
     childprocess (4.0.0)
@@ -26,8 +26,8 @@ GEM
       parallel
     parser (3.0.0.0)
       ast (~> 2.4.1)
-    pdf-reader (2.4.1)
-      Ascii85 (~> 1.0.0)
+    pdf-reader (2.4.2)
+      Ascii85 (~> 1.0)
       afm (~> 0.2.1)
       hashery (~> 2.0)
       ruby-rc4
