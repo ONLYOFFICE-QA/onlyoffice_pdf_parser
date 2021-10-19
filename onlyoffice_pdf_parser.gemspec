@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   }
   s.email = %w[shockwavenn@gmail.com kvazilife@gmail.com]
   s.files = Dir['lib/**/*']
-  s.add_dependency('image_size', '~> 2')
+  s.add_dependency('image_size', '>= 2', '< 4')
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '~> 4')
   s.add_development_dependency('overcommit', '~> 0')
