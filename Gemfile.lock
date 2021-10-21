@@ -16,7 +16,7 @@ GEM
     diff-lcs (1.4.4)
     docile (1.4.0)
     hashery (2.1.2)
-    image_size (3.0.0)
+    image_size (3.0.1)
     iniparse (1.5.0)
     overcommit (0.58.0)
       childprocess (>= 0.6.3, < 5)
