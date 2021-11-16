@@ -6,6 +6,10 @@
 
 * Add `ruby-3.0 to CI
 
+### Changes
+
+* Require `mfa` for releasing gem
+
 ## 0.3.0 (2020-11-20)
 
 ### New Features
