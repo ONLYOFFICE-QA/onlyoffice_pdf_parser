@@ -9,6 +9,7 @@
 ### Changes
 
 * Require `mfa` for releasing gem
+* Improve `branch` coverage to 100%
 
 ## 0.3.0 (2020-11-20)
 
