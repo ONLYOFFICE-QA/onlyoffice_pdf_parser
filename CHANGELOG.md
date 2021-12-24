@@ -10,6 +10,7 @@
 
 * Require `mfa` for releasing gem
 * Improve `branch` coverage to 100%
+* Fix code issues find by rubocop `v1.24.0`
 
 ## 0.3.0 (2020-11-20)
 
