@@ -4,13 +4,15 @@
 
 ### New Features
 
-* Add `ruby-3.0 to CI
+* Add `ruby-3.0` to CI
+* Add `ruby-3.1` to CI
 
 ### Changes
 
 * Require `mfa` for releasing gem
 * Improve `branch` coverage to 100%
 * Fix code issues find by rubocop `v1.24.0`
+* Remove `ruby-2.5` from CI since it's EOLed
 
 ## 0.3.0 (2020-11-20)
 
