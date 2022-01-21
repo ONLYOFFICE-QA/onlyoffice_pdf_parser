@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.4.0 (2021-01-21)
+
 ### New Features
 
 * Add `ruby-3.0` to CI
@@ -13,6 +15,7 @@
 * Improve `branch` coverage to 100%
 * Fix code issues find by rubocop `v1.24.0`
 * Remove `ruby-2.5` from CI since it's EOLed
+* Require `image_size` gem version ~> 3
 
 ## 0.3.0 (2020-11-20)
 
