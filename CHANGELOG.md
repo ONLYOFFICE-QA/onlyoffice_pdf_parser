@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Remove `codeclimate` config, since we don't use it any more
+
 ## 0.4.0 (2021-01-21)
 
 ### New Features
