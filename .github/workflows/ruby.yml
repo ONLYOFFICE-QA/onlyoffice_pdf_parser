@@ -12,32 +12,28 @@ jobs:
           - ruby: head
             allow-failures: true
     steps:
-    - name: Setup system requirements
-      run: |
-        sudo apt-get -y update
-        sudo apt-get -y install ghostscript \
-                                poppler-utils
-    - name: Allow ImageMagick PDF policy
-      run: sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
-    - uses: actions/checkout@v2
-    - name: Set up Ruby ${{ matrix.ruby }}
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Build and test with Rake
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec rake
-    - name: Check `simplecov` line coverage
-      run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
-    - name: Check `simplecov` branch coverage
-      run: cat coverage/.last_run.json | jq '.result.branch' | grep -q '100'
-    - name: Check markdown files using `markdownlint`
-      run: |
-        sudo npm install -g markdownlint-cli
-        markdownlint *.md
-    - name: Check source files using `rubocop`
-      run: rubocop
-    - name: Check that code 100% documented
-      run: yardoc . | grep -q '100.00% documented'
+      - name: Setup system requirements
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install ghostscript \
+                                  poppler-utils
+      - name: Allow ImageMagick PDF policy
+        run: sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
+      - uses: actions/checkout@v2
+      - name: Set up Ruby ${{ matrix.ruby }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Build and test with Rake
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rake
+      - name: Check `simplecov` line coverage
+        run: cat coverage/.last_run.json | jq '.result.line' | grep -q '100'
+      - name: Check `simplecov` branch coverage
+        run: cat coverage/.last_run.json | jq '.result.branch' | grep -q '100'
+      - name: Check source files using `rubocop`
+        run: rubocop
+      - name: Check that code 100% documented
+        run: yardoc . | grep -q '100.00% documented'
