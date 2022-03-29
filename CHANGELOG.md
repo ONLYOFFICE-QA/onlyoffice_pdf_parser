@@ -10,7 +10,6 @@
 
 * Remove `codeclimate` config, since we don't use it any more.
 * Check `dependabot` at 8:00 Moscow time daily
-* Remove `ruby-2.6` from CI, since `parallel_tests` do not support it
 
 ## 0.4.0 (2021-01-21)
 
