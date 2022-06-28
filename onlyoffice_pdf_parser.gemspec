@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ['Pavel Lobashov', 'Dmitry Rotaty']
   s.summary = 'ONLYOFFICE PDF Parser Gem'
   s.description = 'Library for parsing, converting and extracting PDF data'
-  s.homepage = 'https://github.com/ONLYOFFICE-QA/'\
+  s.homepage = 'https://github.com/ONLYOFFICE-QA/' \
                "#{s.name}"
   s.metadata = {
     'bug_tracker_uri' => "#{s.homepage}/issues",
