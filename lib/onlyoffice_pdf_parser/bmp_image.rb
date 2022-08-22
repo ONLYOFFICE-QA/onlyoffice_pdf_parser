@@ -8,7 +8,6 @@ require_relative 'helpers/cursor_point'
 module OnlyofficePdfParser
   # class for storing bmp image pixels data
   class BmpImage
-    include Magick
     attr_accessor :path_to_image, :pixels, :width, :height
     # @return [String] binary dat of file
     attr_reader :data
@@ -108,7 +107,9 @@ module OnlyofficePdfParser
     def fetch_pixels
       tmp_file = Tempfile.new('onlyoffice_pdf_parser')
       File.binwrite(tmp_file, data)
-      @pixels = ImageList.new(tmp_file.path).get_pixels(0, 0, width, height).each_slice(width).to_a
+      @pixels = Magick::ImageList.new(tmp_file.path)
+                                 .get_pixels(0, 0, width, height)
+                                 .each_slice(width).to_a
       tmp_file.unlink
     end
 
