@@ -91,7 +91,7 @@ module OnlyofficePdfParser
 
     private
 
-    # @param param [String] file path of file binaryt
+    # @param param [String] file path of file binary data
     # @return [Void] init class data
     def init_data(param)
       if OnlyofficePdfParser::FileHelper.file_path?(param)

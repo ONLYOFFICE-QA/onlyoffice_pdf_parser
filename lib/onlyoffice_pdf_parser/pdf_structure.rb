@@ -15,7 +15,7 @@ module OnlyofficePdfParser
     attr_accessor :pages
     # @return [String] full path to file
     attr_accessor :file_path
-    # @return [Array<String>] bin representation of bmps
+    # @return [Array<String>] bin representation of BMPs
     attr_reader :pages_in_bmp
 
     def initialize(pages: [], file_path: nil)
