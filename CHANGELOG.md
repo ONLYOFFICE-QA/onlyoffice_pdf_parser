@@ -11,6 +11,7 @@
 * Remove `codeclimate` config, since we don't use it any more.
 * Check `dependabot` at 8:00 Moscow time daily
 * Drop `ruby-2.5` support since it's EOL'ed
+* Do not include `Magic` namespace in `BmpImage`
 
 ## 0.4.0 (2021-01-21)
 
