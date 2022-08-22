@@ -14,8 +14,8 @@ module PdfConvertToBmpHelper
 
   private
 
-  # @param path_pattern [String] pattern to find bmps
-  # @return [Array<String>] list of bmps
+  # @param path_pattern [String] pattern to find BMPs
+  # @return [Array<String>] list of BMPs
   def multipage_files(path_pattern)
     files_dir = File.dirname(path_pattern)
     files_base = File.basename(path_pattern, '.*')

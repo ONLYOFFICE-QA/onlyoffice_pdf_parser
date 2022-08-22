@@ -13,6 +13,10 @@
 * Drop `ruby-2.5` support since it's EOL'ed
 * Do not include `Magic` namespace in `BmpImage`
 
+### Fixes
+
+* Fix minor typos in documentation
+
 ## 0.4.0 (2021-01-21)
 
 ### New Features
@@ -62,7 +66,7 @@
 ### Changes
 
 * Use GitHub Actions instead of TravisCI
-* Use `simplecov` instead of `codecov` for test covarage
+* Use `simplecov` instead of `codecov` for test coverage
 * Freeze specific `rubocop` and it's extensions versions in `gemspec`
 * Drop ruby 2.4 support, since it's EOLed
 * Store gem name in const and use it from there
@@ -89,7 +93,7 @@
 
 ### New features
 
-* Add parsing bmp stream for multipage pdf's
+* Add parsing bmp stream for multipage PDFs
 * Update `image-size` gem dependency to version 2  
 * Redone parsing of page size (allow minor diff)
 * Add `PdfStructure#page_size_points` to get page size in points
