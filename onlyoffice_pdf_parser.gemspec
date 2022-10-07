@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.files = Dir['lib/**/*']
   s.add_dependency('image_size', '>= 2', '< 4')
   s.add_dependency('pdf-reader', '~> 2')
-  s.add_dependency('rmagick', '~> 4')
+  s.add_dependency('rmagick', '>= 4', '< 6')
   s.add_development_dependency('overcommit', '~> 0')
   s.add_development_dependency('parallel_tests', '~> 3')
   s.add_development_dependency('rake', '~> 13')
