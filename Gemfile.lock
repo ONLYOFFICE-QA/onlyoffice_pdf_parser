@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    onlyoffice_pdf_parser (0.4.0)
+    onlyoffice_pdf_parser (0.5.0)
       image_size (>= 2, < 4)
       pdf-reader (~> 2)
       rmagick (>= 4, < 6)
@@ -102,4 +102,4 @@ DEPENDENCIES
   yard (>= 0.9.20)
 
 BUNDLED WITH
-   2.3.20
+   2.3.23
