@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '>= 4', '< 6')
   s.add_development_dependency('overcommit', '~> 0')
-  s.add_development_dependency('parallel_tests', '~> 3')
+  s.add_development_dependency('parallel_tests', '~> 4')
   s.add_development_dependency('rake', '~> 13')
   s.add_development_dependency('rspec', '~> 3')
   s.add_development_dependency('rubocop', '~> 1')
