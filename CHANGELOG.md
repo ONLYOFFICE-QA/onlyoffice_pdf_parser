@@ -8,7 +8,7 @@
 
 ### Changes
 
-* Drop support `ruby-2.6` since it's EOL'ed
+* Drop support `ruby-2.6`, `ruby-2.7` since it's EOL'ed
 
 ## 0.5.0 (2022-10-10)
 
