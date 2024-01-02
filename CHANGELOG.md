@@ -5,6 +5,7 @@
 ### New Features
 
 * Add `ruby-3.2` to CI
+* Add `ruby-3.3` to CI
 
 ### Changes
 
@@ -104,7 +105,7 @@
 ### New features
 
 * Add parsing bmp stream for multipage PDFs
-* Update `image-size` gem dependency to version 2  
+* Update `image-size` gem dependency to version 2
 * Redone parsing of page size (allow minor diff)
 * Add `PdfStructure#page_size_points` to get page size in points
 * Add rake tasks for releasing gem
