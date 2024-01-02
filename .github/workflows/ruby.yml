@@ -19,7 +19,7 @@ jobs:
                                   poppler-utils
       - name: Allow ImageMagick PDF policy
         run: sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Ruby ${{ matrix.ruby }}
         uses: ruby/setup-ruby@v1
         with:
