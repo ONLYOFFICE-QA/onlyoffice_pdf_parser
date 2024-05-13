@@ -4,7 +4,7 @@ PATH
     onlyoffice_pdf_parser (0.5.0)
       image_size (>= 2, < 4)
       pdf-reader (~> 2)
-      rmagick (>= 4, < 6)
+      rmagick (>= 4, < 7)
 
 GEM
   remote: https://rubygems.org/
@@ -44,7 +44,7 @@ GEM
     rake (13.2.1)
     regexp_parser (2.9.1)
     rexml (3.2.6)
-    rmagick (5.5.0)
+    rmagick (6.0.0)
       observer (~> 0.1)
       pkg-config (~> 1.4)
     rspec (3.13.0)
