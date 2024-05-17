@@ -13,6 +13,10 @@
 * Drop support `ruby-2.6`, `ruby-2.7` since it's EOL'ed
 * Allow `rmagick-6.x` usage as dependency
 
+### Fixes
+
+* Fix warning about license name on `gem build`
+
 ## 0.5.0 (2022-10-10)
 
 ### New Features

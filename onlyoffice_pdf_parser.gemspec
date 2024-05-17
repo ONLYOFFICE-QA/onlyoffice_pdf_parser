@@ -26,5 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency('image_size', '>= 2', '< 4')
   s.add_dependency('pdf-reader', '~> 2')
   s.add_dependency('rmagick', '>= 4', '< 7')
-  s.license = 'AGPL-3.0'
+  s.license = 'AGPL-3.0-or-later'
 end
