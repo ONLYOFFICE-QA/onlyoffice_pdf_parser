@@ -91,7 +91,7 @@ GEM
     simplecov_json_formatter (0.1.4)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     yard (0.9.37)
 
 PLATFORMS
