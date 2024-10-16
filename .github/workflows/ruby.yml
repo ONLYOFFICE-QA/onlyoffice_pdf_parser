@@ -16,7 +16,9 @@ jobs:
         run: |
           sudo apt-get -y update
           sudo apt-get -y install ghostscript \
-                                  poppler-utils
+                                  poppler-utils \
+                                  imagemagick \
+                                  libmagickwand-dev
       - name: Allow ImageMagick PDF policy
         run: sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
       - uses: actions/checkout@v4
