@@ -5,7 +5,7 @@ It is gem for parsing pdf files.
 ## Installation
 
 This gem requires `pdfinfo` app, part of `poppler-utils`.
-And `imagemagick` as dependencies.
+Also `imagemagick` required.
 
 1. Install system dependencies:
 
@@ -21,8 +21,8 @@ And `imagemagick` as dependencies.
 
        ```shell script
        sudo dnf install ImageMagick \
-                 ImageMagick-devel \
-                 poppler-utils
+                        ImageMagick-devel \
+                        poppler-utils
        ```
 
 2. Install gem by command:
