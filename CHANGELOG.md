@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## Fixes
+
+* Fix missing dependencies in README.md
+
 ## 0.6.0 (2024-05-17)
 
 ### New Features

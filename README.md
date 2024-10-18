@@ -4,19 +4,26 @@ It is gem for parsing pdf files.
 
 ## Installation
 
-1. Install `pdfinfo` app, part of `poppler-utils`
+This gem requires `pdfinfo` app, part of `poppler-utils`.
+And `imagemagick` as dependencies.
+
+1. Install system dependencies:
 
    * Debian-Based Linux:
 
        ```shell script
-       sudo apt-get install poppler-utils
+       sudo apt-get install imagemagick \
+                            libmagickwand-dev \
+                            poppler-utils
        ```
 
    * Fedora-Based Linux:
 
        ```shell script
-       sudo yum install poppler-utils
-       ```  
+       sudo dnf install ImageMagick \
+                 ImageMagick-devel \
+                 poppler-utils
+       ```
 
 2. Install gem by command:
 
