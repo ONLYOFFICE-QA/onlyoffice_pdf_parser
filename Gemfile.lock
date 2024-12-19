@@ -20,7 +20,7 @@ GEM
     hashery (2.1.2)
     image_size (3.4.0)
     iniparse (1.5.0)
-    json (2.9.0)
+    json (2.9.1)
     language_server-protocol (3.17.0.3)
     logger (1.6.3)
     observer (0.1.2)
