@@ -12,7 +12,7 @@ GEM
     Ascii85 (2.0.1)
     afm (0.2.2)
     ast (2.4.2)
-    bigdecimal (3.1.8)
+    bigdecimal (3.1.9)
     childprocess (5.1.0)
       logger (~> 1.5)
     diff-lcs (1.5.1)
