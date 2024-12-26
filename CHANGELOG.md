@@ -2,9 +2,17 @@
 
 ## master (unreleased)
 
-## Fixes
+### New Features
+
+* Add `ruby-3.4` to CI
+
+### Fixes
 
 * Fix missing dependencies in README.md
+
+### Changes
+
+* Remove `ruby-3.0` from CI, since it's EOLed
 
 ## 0.6.0 (2024-05-17)
 
