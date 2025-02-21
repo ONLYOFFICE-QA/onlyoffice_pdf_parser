@@ -9,6 +9,7 @@
 ### Fixes
 
 * Fix missing dependencies in README.md
+* Run `rubocop` in CI through `bundle exec`
 
 ### Changes
 
