@@ -21,7 +21,7 @@ jobs:
                                   libmagickwand-dev
       - name: Allow ImageMagick PDF policy
         run: sudo sed -i '/PDF/d' /etc/ImageMagick-6/policy.xml
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Ruby ${{ matrix.ruby }}
         uses: ruby/setup-ruby@v1
         with:
